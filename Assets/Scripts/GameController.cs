@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     public Button option1Button;
     public Button option2Button;
 
+
     private Player player;
     private GameManager gameManager;
 
@@ -46,6 +47,7 @@ public class GameController : MonoBehaviour
             {
                 player.CreatePlayer(playerName, strength, dexterity, remainingPoints, health);
                 gameManager.StartGame();
+                playerStatsText.text = player.GetStats();
             }
         }
     }
@@ -73,6 +75,7 @@ public class GameManager
     private int currentDialogueIndex;
     private List<Dialogue> dialogues;
 
+
     public string CurrentDialogue => dialogues[currentDialogueIndex].Text;
 
     public GameManager()
@@ -84,23 +87,23 @@ public class GameManager
                 new List<Option>
                 {
                     //fuerza, destreza, vida
-                    new Option("A) Camino de la fuerza", 10, 0, 0, () => { player.IncreaseStrength(0); }),
-                    new Option("B) Camino de la destreza", 0, 10, 0, () => { player.IncreaseDexterity(0); }),
+                    new Option("A) Camino de la fuerza", 10, 0, 0, () => { }), 
+                    new Option("B) Camino de la destreza", 0, 10, 0, () => { }),
+
                 }),
             new Dialogue("Has llegado a un cruce en el camino. ¿Qué haces?",
                 new List<Option>
                 {
-                    new Option("A) Ir a la izquierda", 0, 0, 0, () => { player.IncreaseStrength(0); }),
-                    new Option("B) Ir a la derecha", 0, 5, -5, () => { player.IncreaseDexterity(2); }),
+                    new Option("A) Ir a la izquierda", 0, 0, 0, () => { }),
+                    new Option("B) Ir a la derecha", 0, 5, -5, () => { }),
                 }),
             new Dialogue("Estas en un cuarto completamente oscuro",
             new List<Option>
                 {
-                    new Option("A) Buscas algo para iluminar el cuarto", 0, 0, 0, () => { player.IncreaseStrength(10); }),
+                    new Option("A) Buscas algo para iluminar el cuarto", 0, 0, 0, () => { }),
 
-                    new Option("B) Sigues adelante sin importar nada", 0, 5, -5, () => { player.IncreaseDexterity(10); }),
+                    new Option("B) Sigues adelante sin importar nada", 0, 5, -5, () => { }),
                 }),
-
         };
     }
 
@@ -134,4 +137,5 @@ public class GameManager
         }
         return string.Empty;
     }
+
 }

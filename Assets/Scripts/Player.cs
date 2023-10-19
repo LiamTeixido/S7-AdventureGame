@@ -34,16 +34,6 @@ public class Player : MonoBehaviour
         this.health = 100 - (strength + dexterity);
     }
 
-    public void IncreaseStrength(int amount)
-    {
-        strength += amount;
-    }
-
-    public void IncreaseDexterity(int amount)
-    {
-        dexterity += amount;
-    }
-
     public void ChangeHealth(int value)
     {
         health += value;
