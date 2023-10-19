@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
         instance = this;
     }
 
-    public void CreatePlayer(string name, int strength, int dexterity, int remainingPoints)
+    public void CreatePlayer(string name, int strength, int dexterity, int remainingPoints, int health)
     {
         this.name = name;
         this.strength = strength;
